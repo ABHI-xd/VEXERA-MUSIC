@@ -4,9 +4,9 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from function.admins import set
-from helpers.channelmusic import get_chat_id
-from helpers.decorators import authorized_users_only, errors
-from helpers.filters import command, other_filters
+from Abhixd.channelmusic import get_chat_id
+from Abhixd.decorators import authorized_users_only, errors
+from Abhixd.filters import command, other_filters
 from callsmusic import callsmusic
 from callsmusic.queues import queues
 
