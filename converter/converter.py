@@ -1,7 +1,7 @@
 import asyncio
 from os import path
 
-from helpers.errors import FFmpegReturnCodeError
+from Abhixd.errors import FFmpegReturnCodeError
 
 
 async def convert(file_path: str) -> str:
