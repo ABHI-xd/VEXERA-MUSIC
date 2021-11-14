@@ -7,8 +7,8 @@ from function.admins import set
 from helpers.channelmusic import get_chat_id
 from helpers.decorators import authorized_users_only, errors
 from helpers.filters import command, other_filters
-from services.callsmusic import callsmusic
-from services.queues import queues
+from callsmusic import callsmusic
+from callsmusic.queues import queues
 
 
 @Client.on_message(filters.command(["adminreset", "snehabhi", "vexera"]))
