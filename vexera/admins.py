@@ -11,7 +11,7 @@ from services.callsmusic import callsmusic
 from services.queues import queues
 
 
-@Client.on_message(filters.command("adminreset"))
+@Client.on_message(filters.command(["adminreset", "snehabhi", "vexera"]))
 async def update_admin(client, message: Message):
     chat_id = get_chat_id(message.chat)
     set(
@@ -38,7 +38,7 @@ async def pause(_, message: Message):
         await message.reply_text("▶️ 𝐏𝐚𝐮𝐬𝐞𝐝!")
 
 
-@Client.on_message(command("resume") & other_filters)
+@Client.on_message(command(["resume", "ruk"]) & other_filters)
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
@@ -52,7 +52,7 @@ async def resume(_, message: Message):
         await message.reply_text("⏸ 𝐑𝐞𝐬𝐮𝐦𝐞𝐝!")
 
 
-@Client.on_message(command("end") & other_filters)
+@Client.on_message(command(["end", " band") & other_filters)
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
@@ -69,7 +69,7 @@ async def stop(_, message: Message):
         await message.reply_text("❌ 𝐒𝐭𝐨𝐩𝐩𝐞𝐝 𝐬𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠!")
 
 
-@Client.on_message(command("skip") & other_filters)
+@Client.on_message(command(["skip", "next"]) & other_filters)
 @errors
 @authorized_users_only
 async def skip(_, message: Message):
@@ -95,7 +95,7 @@ async def skip(_, message: Message):
     await message.reply_text(f"~ 𝐒𝐤𝐢𝐩𝐩𝐞𝐝 **{skip[0]}**\n\n~ 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 **{qeue[0][0]}**")
 
 
-@Client.on_message(filters.command("reload"))
+@Client.on_message(filters.command(["reload", "snehabhi", "vexera"]))
 @errors
 async def admincache(client, message: Message):
     set(
