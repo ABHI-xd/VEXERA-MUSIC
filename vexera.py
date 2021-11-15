@@ -1,5 +1,5 @@
 import requests
-from pytgcalls import idle
+
 from callsmusic import run
 from vexera import __version__
 from pyrogram import Client as Bot
@@ -16,11 +16,11 @@ bot = Bot(
     API_ID,
     API_HASH,
     bot_token=BOT_TOKEN,
-    plugins=dict(root="handlers"),
+    plugins=dict(root="vexera"),
 )
 
 print("[INFO]: VEXERA MUSIC NOW STARTED TO PLAY!")
 
 bot.start()
 run()
-idle()
+
