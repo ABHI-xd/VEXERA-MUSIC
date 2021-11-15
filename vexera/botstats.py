@@ -16,7 +16,7 @@ from os import environ, execle, path, remove
 from callsmusic.callsmusic import client as pakaya
 from Abhixd.decorators import sudo_users_only
 from vexera.song import humanbytes, get_text
-from config import SUDO_USERS, SUPPORT_GROUP
+from config import SUDO_USERS, GROUP_SUPPORT
 
 
 # Stats Of Your Bot
