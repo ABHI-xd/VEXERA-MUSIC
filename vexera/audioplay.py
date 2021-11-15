@@ -8,7 +8,7 @@ from callsmusic import callsmusic, queues
 import converter
 from downloaders import youtube
 
-from config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, BG_IMAGE, SUPPORT_GROUP
+from config import BOT_NAME as bn, DURATION_LIMIT, UPDATES_CHANNEL, BG_IMAGE, GROUP_SUPPORT
 from Abhixd.filters import command, other_filters
 from Abhixd.decorators import errors
 from Abhixd.errors import DurationLimitError
