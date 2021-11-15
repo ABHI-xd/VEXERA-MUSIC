@@ -1,0 +1,107 @@
+{
+    "name": "★[ᴠᴇxᴇʀᴀ ᴍᴜꜱɪᴄ]★",
+    "logo": "https://telegra.ph/file/e954fc1ac5f7aa16d4f91.jpg",
+    "description": "[ᴠᴇxᴇʀᴀ ᴍᴜꜱɪᴄ ɪꜱ ᴀ ꜱᴜᴘᴇʀꜰᴀꜱᴛ ᴠᴄ ʙᴏᴛ ᴡɪᴛʜᴏᴜᴛ ᴀɴʏ ʟᴀɢ].",
+    "keywords": ["music", "voice chat", "telegram"],
+    "repository": "https://github.com/ABHI-xd/VEXERA-MUSIC",
+    "stack": "container",
+    "env": {
+        "SESSION_NAME": {
+            "description": "string Pyrogram (P)",
+            "required": true
+        },
+        "BOT_TOKEN": {
+            "description": "Your bot token from @BotFather",
+            "required": true
+        },
+        "BOT_NAME": {
+            "description": "Your musicplayer name.",
+            "required": true,
+            "value": ""
+        },
+        "BOT_USERNAME": {
+            "description": "Fill woth your blt username without @",
+            "required": true,
+            "value": "VEXERAMUSICBOT"
+        },
+        "U_BRANCH": {
+            "description": "This branch the repo DON'T CHANGE!",
+            "required": true,
+            "value": "Rio-Music"
+        },
+        "HEROKU_API_KEY": {
+            "description": "Your heroku api key get from setting account.",
+            "required": true,
+            "value": ""
+        },
+        "HEROKU_APP_NAME": {
+            "description": "Your heroku app name, get it from top",
+            "required": true,
+            "value": ""
+        },
+        "UPSTREAM_REPO": {
+            "description": "If you forking, put your link on this value. if you not forking LEAVE THIS ONE!",
+            "required": true,
+            "value": "https://github.com/ABHI-xd/VEXERA-MUSIC"
+        },
+        "OWNER_ID": {
+            "description": "PUT YOUR ID",
+            "required": true
+        },
+        "ASSISTANT_NAME": {
+            "description": "Fill with your assistant username without @",
+            "required": true,
+            "value": "VEXERA_MUSIC"
+        },
+        "ALIVE_EMOJI": {
+            "description": "for emoji in /alive command",
+            "required": true,
+            "value": "🍁"
+        },
+        "OWNER_NAME": {
+            "description": "Fill with your username account without @",
+            "required": false,
+            "value": "SNEHABHI_KING"
+        },
+        "API_ID": {
+            "description": "APP ID from my.telegram.org",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "API HASH from my.telegram.org",
+            "required": true
+        },
+        "SUDO_USERS": {
+            "description": "Fill with ID who you made a admin for bot (separate with space).",
+            "required": true
+        },
+        "DURATION_LIMIT": {
+            "description": "Duration limit for your musicplayer (in minutes).",
+            "required": true,
+            "value": "150"
+        },
+        "PMPERMIT": {
+            "description": "for PMPERMIT on assistant account.",
+            "required": false,
+            "value": "ENABLE"
+        },
+        "DATABASE_URL": {
+            "description": "fill with the mongodb url you get from cloud.mongodb.com",
+            "required": true,
+            "value": ""
+        },
+        "LOG_CHANNEL": {
+            "description": "create a private channel and get the channel id (give the channel username/link to bot @username_to_id_bot and get the channel id), add your bot as admin to the channel too",
+            "required": true,
+            "value": ""
+        }
+    },
+    "buildpacks": [
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
