@@ -32,7 +32,7 @@ from Abhixd.decorators import authorized_users_only
 from Abhixd.filters import command, other_filters
 from Abhixd.gets import get_file_name
 from callsmusic import callsmusic, queues
-from callsmusic.callsmusic import client as USER
+from callsmusic import client as USER
 from converter.converter import convert
 from downloaders import youtube
 
