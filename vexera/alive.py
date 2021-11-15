@@ -40,10 +40,10 @@ async def alive(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{BOT_IMG}",
         caption=f"""**༄ ★ʜᴇʟʟᴏ★ [{bn}](https://t.me/{BOT_USERNAME})**
-༄ **Saya Bekerja Untuk Group Anda**
-༄ **Bot : 7.5 LATEST**
-༄ **My Master : [★ᴀʙʜɪꜱʜᴇᴋ★](https://t.me/{OWNER_NAME})**
-༄ **Service Uptime : `{uptime}`**
+༄ **★[ᴠᴇxᴇʀᴀ ᴍᴜꜱɪᴄ ʙᴏᴛ ʙʏ ᴀʙʜɪꜱʜᴇᴋ]★**
+༄ **★ʙᴏᴛ★ : 7.5 LATEST**
+༄ **★ᴍʏ ᴍᴀꜱᴛᴇʀ★ : [★ᴀʙʜɪꜱʜᴇᴋ★](https://t.me/{OWNER_NAME})**
+༄ **★ꜱᴇʀᴠɪᴄᴇ ᴜᴘᴛɪᴍᴇ★ : `{uptime}`**
 ** ★ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴄʜᴀɴɴᴇʟ★ ♥️**""",
         reply_markup=InlineKeyboardMarkup(
             [
