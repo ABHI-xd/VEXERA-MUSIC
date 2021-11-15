@@ -6,3 +6,4 @@ WORKDIR /app/
 RUN pip3 install -U pip
 RUN pip3 install -U -r installer
 CMD python3 -m vexera.py
+
