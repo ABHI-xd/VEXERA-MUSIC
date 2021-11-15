@@ -5,5 +5,5 @@ COPY . /app/
 WORKDIR /app/
 RUN pip3 install -U pip
 RUN pip3 install -U -r installer
-CMD python3 -m vexera.py
+CMD ["python3", "vexera.py"]
 
