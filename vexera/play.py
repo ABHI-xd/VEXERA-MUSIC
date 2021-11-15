@@ -31,11 +31,11 @@ from Abhixd.decorators import errors
 from Abhixd.decorators import authorized_users_only
 from Abhixd.filters import command, other_filters
 from Abhixd.gets import get_file_name
-from callsmusic import callsmusic, queues
+from callsmusic import callsmusic
 from callsmusic import client as USER
 from converter.converter import convert
 from downloaders import youtube
-
+from callsmusic.queues import queues
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
@@ -605,7 +605,7 @@ async def play(_, message: Message):
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 🙃 ᴅᴜʀᴀᴛɪᴏɴ - {results[j]['duration']}\n"
-                toxxt += f" └ 𝗔ᴅᴅʏ 𝗣ᴏᴡᴇʀᴇᴅ💜\n\n"
+                toxxt += f" └ 𝗔BHI 𝗣ᴏᴡᴇʀᴇᴅ💜\n\n"
                 j += 1            
             koyboard = InlineKeyboardMarkup(
                 [
@@ -623,7 +623,7 @@ async def play(_, message: Message):
             )       
             await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
             # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
-            # Kanged by @AddyxD
+            # Kanged by @ABHI-xd
             return
             # Returning to pornhub
         except:
@@ -665,7 +665,7 @@ async def play(_, message: Message):
             await generate_cover(requested_by, title, views, duration, thumbnail)
             file_path = await convert(youtube.download(url))   
     chat_id = get_chat_id(message.chat)
-    if chat_id in callsmusic.pytgcalls.active_calls:
+    if chat_id in callsmusic.active_calls:
         position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
         s_name = title
@@ -690,7 +690,7 @@ async def play(_, message: Message):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         try:
-            callsmusic.pytgcalls.join_group_call(chat_id, file_path)
+            callsmusic.join_group_call(chat_id, file_path)
         except:
             message.reply("𝐆𝐫𝐨𝐮𝐩 𝐂𝐚𝐥𝐥 𝐢𝐬 𝐧𝐨𝐭 𝐜𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝 𝐨𝐫 𝐈 𝐜𝐚𝐧'𝐭 𝐣𝐨𝐢𝐧 𝐢𝐭")
             return
@@ -1089,7 +1089,7 @@ async def jiosaavn(client: Client, message_: Message):
     )
     file_path = await convert(wget.download(slink))
     chat_id = get_chat_id(message_.chat)
-    if chat_id in callsmusic.pytgcalls.active_calls:
+    if chat_id in callsmusic.active_calls:
         position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
         s_name = sname
@@ -1194,7 +1194,7 @@ async def lol_cb(b, cb):
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))  
-    if chat_id in callsmusic.pytgcalls.active_calls:
+    if chat_id in callsmusic.active_calls:
         position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
         s_name = title
@@ -1225,7 +1225,7 @@ async def lol_cb(b, cb):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
 
-        callsmusic.pytgcalls.join_group_call(chat_id, file_path)
+        callsmusic.join_group_call(chat_id, file_path)
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
