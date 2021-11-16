@@ -1,6 +1,4 @@
-from pyrogram import Client
+from callsmusic.queues import queues
+from callsmusic.callsmusic import pytgcalls, run
 
-import config
-
-client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
-run = client.run
+__all__ = ["queues", "pytgcalls", "run"]
