@@ -1,4 +1,4 @@
-from cache.admins import admins
+from function.admins import admins
 from Abhixd.snehabhi import call_py
 from pyrogram import Client, filters
 from Abhixd.decorators import authorized_users_only
