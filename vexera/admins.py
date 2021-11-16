@@ -9,7 +9,7 @@ from Abhixd.decorators import authorized_users_only, errors
 from Abhixd.filters import command, other_filters
 from callsmusic import callsmusic
 from callsmusic.queues import queues
-from pytgcalls.types.input_stream import InputAudioStream
+
 
 @Client.on_message(filters.command(["adminreset", "snehabhi", "vexera"]))
 async def update_admin(client, message: Message):
@@ -106,3 +106,4 @@ async def admincache(client, message: Message):
         ],
     )
     await message.reply_text("❇️ 𝐀𝐝𝐦𝐢𝐧 𝐜𝐚𝐜𝐡𝐞 𝐫𝐞𝐟𝐫𝐞𝐬𝐡𝐞𝐝!")
+
