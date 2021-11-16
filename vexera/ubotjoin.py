@@ -5,7 +5,7 @@ from pyrogram.errors import UserAlreadyParticipant
 
 from config import SUDO_USERS, ASSISTANT_NAME
 from Abhixd.decorators import authorized_users_only, errors
-from callsmusic.callsmusic import client as USER
+from callsmusic import client as USER
 
 
 @Client.on_message(filters.command(["userbotjoin", "ubjoin", "vexerajoin"]) & ~filters.private & ~filters.bot)
