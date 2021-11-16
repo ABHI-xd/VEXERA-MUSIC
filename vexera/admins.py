@@ -7,7 +7,7 @@ from function.admins import set
 from Abhixd.channelmusic import get_chat_id
 from Abhixd.decorators import authorized_users_only, errors
 from Abhixd.filters import command, other_filters
-from callsmusic import callsmusic
+from callsmusic.callsmusic import callsmusic
 from callsmusic.queues import queues
 from config import que
 
