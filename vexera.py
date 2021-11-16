@@ -1,6 +1,6 @@
 import requests
 
-from callsmusic import run
+from callsmusic.callsmusic import run
 from vexera import __version__
 from pyrogram import Client as Bot
 from config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN
