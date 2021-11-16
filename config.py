@@ -31,6 +31,7 @@ OWNER_NAME = getenv("OWNER_NAME", "SNEHABHI_KING") # isi dengan username kamu ta
 ALIVE_EMOJI = getenv("ALIVE_EMOJI", "🌻")
 IMG_2 = getenv("IMG_2", "https://telegra.ph/file/aa63b2b2cb28b357140a7.png")
 IMG_1 = getenv("IMG_1", "https://telegra.ph/file/d13a980aa20a9c6af069b.png")
+IMG_3 = getenv("IMG_3", "https://telegra.ph/file/0f6f8a8a5ad69fe5ecf3d.png")
 BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", "False"))
 LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL"))
 DATABASE_URL = os.environ.get("DATABASE_URL")
