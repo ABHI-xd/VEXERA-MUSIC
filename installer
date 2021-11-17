@@ -41,3 +41,4 @@ uvloop
 solidAPI==0.1.8.9
 python-arq
 youtube-search-python==1.4.9
+pytz
