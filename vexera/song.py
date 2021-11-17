@@ -19,7 +19,7 @@ from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
 
 from config import DURATION_LIMIT
-from vexera.play import arq
+
 
 
 @Client.on_message(filters.command("song") & ~filters.channel)
