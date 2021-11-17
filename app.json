@@ -27,7 +27,7 @@
         "U_BRANCH": {
             "description": "This branch the repo DON'T CHANGE!",
             "required": true,
-            "value": "Rio-Music"
+            "value": "main"
         },
         "HEROKU_API_KEY": {
             "description": "Your heroku api key get from setting account.",
