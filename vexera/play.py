@@ -1,8 +1,8 @@
 import asyncio
 import re
 
-from config import ASSISTANT_NAME, BOT_USERNAME, IMG_1, IMG_2
-from config import BOT_NAME as {bn}
+from config import ASSISTANT_NAME, BOT_USERNAME, IMG_1, IMG_2, BOT_NAME
+
 from Abhixd.filters import command, other_filters
 from Abhixd.queues import QUEUE, add_to_queue
 from Abhixd.snehabhi import call_py, user
@@ -123,7 +123,7 @@ async def play(c: Client, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {m.from_user.mention()}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",
+                    caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {m.from_user.mention()}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {BOT_NAME}",
                     reply_markup=keyboard,
                 )
             else:
@@ -140,7 +140,7 @@ async def play(c: Client, m: Message):
                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f"💙 **𝐯𝐞𝐱𝐞𝐫𝐚 𝐌𝐮𝐬𝐢𝐜 𝐈𝐬 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ❤️**\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {requester}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",
+                    caption=f"💙 **𝐯𝐞𝐱𝐞𝐫𝐚 𝐌𝐮𝐬𝐢𝐜 𝐈𝐬 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ❤️**\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {requester}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {BOT_NAME}",
                     reply_markup=keyboard,
                 )
              except Exception as e:
@@ -172,7 +172,7 @@ async def play(c: Client, m: Message):
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                             await m.reply_photo(
                                 photo=f"{IMG_1}",
-                                caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {m.from_user.mention()}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",
+                                caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {m.from_user.mention()}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {BOT_NAME}",
                                 reply_markup=keyboard,
                             )
                         else:
@@ -189,7 +189,7 @@ async def play(c: Client, m: Message):
                                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                                 await m.reply_photo(
                                     photo=f"{IMG_2}",
-                                    caption=f"💙 **𝐯𝐞𝐱𝐞𝐫𝐚 𝐌𝐮𝐬𝐢𝐜 𝐈𝐬 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ❤️**\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {requester}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",                                   
+                                    caption=f"💙 **𝐯𝐞𝐱𝐞𝐫𝐚 𝐌𝐮𝐬𝐢𝐜 𝐈𝐬 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ❤️**\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {requester}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {BOT_NAME}",                                   
                                     reply_markup=keyboard,
                                 )
                             except Exception as ep:
@@ -222,7 +222,7 @@ async def play(c: Client, m: Message):
                         )
                         await m.reply_photo(
                             photo=f"{IMG_1}",
-                            caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {m.from_user.mention()}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",
+                            caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {m.from_user.mention()}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {BOT_NAME}",
                             reply_markup=keyboard,
                         )
                     else:
@@ -239,7 +239,7 @@ async def play(c: Client, m: Message):
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                             await m.reply_photo(
                                 photo=f"{IMG_2}",
-                                caption=f"💙 **𝐯𝐞𝐱𝐞𝐫𝐚 𝐌𝐮𝐬𝐢𝐜 𝐈𝐬 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ❤️**\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {requester}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",                                
+                                caption=f"💙 **𝐯𝐞𝐱𝐞𝐫𝐚 𝐌𝐮𝐬𝐢𝐜 𝐈𝐬 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ❤️**\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {requester}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {BOT_NAME}",                                
                                 reply_markup=keyboard,
                             )
                         except Exception as ep:
