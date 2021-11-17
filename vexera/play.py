@@ -145,7 +145,7 @@ async def play(c: Client, m: Message):
                 )
              except Exception as e:
                 await suhu.delete()
-                await m.reply_text(f" 𝐏𝐚𝐡𝐥𝐞 𝐕𝐜 𝐭𝐨 𝐬𝐭𝐚𝐫𝐭 𝐤𝐚𝐫 𝐥𝐨 ")
+                await m.reply_text(f" error:\n\n» {e}")
         else:
             if len(m.command) < 2:
                 await m.reply(
@@ -172,7 +172,7 @@ async def play(c: Client, m: Message):
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                             await m.reply_photo(
                                 photo=f"{IMG_1}",
-                                caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** `{m.from_user.mention()}`\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {BOT_NAME}",
+                                caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧** @VEXERA_SUPPORT\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** `{requester}`\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {BOT_NAME}",
                                 reply_markup=keyboard,
                             )
                         else:
@@ -194,7 +194,7 @@ async def play(c: Client, m: Message):
                                 )
                             except Exception as ep:
                                 await suhu.delete()
-                                await m.reply_text(f"𝐏𝐚𝐡𝐥𝐞 𝐕𝐜 𝐭𝐨 𝐬𝐭𝐚𝐫𝐭 𝐤𝐚𝐫 𝐥𝐨")
+                                await m.reply_text(f"error: `{ep}`")
 
     else:
         if len(m.command) < 2:
