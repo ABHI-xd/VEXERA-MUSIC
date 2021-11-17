@@ -11,6 +11,7 @@ async def mulai_bot():
     await pidle()
     print("[VEXERA MUSIC]: STOPPING BOT & USERBOT")
     await bot.stop()
+print(f"[INFO]: VEXERA MUSIC STARTED !")
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(mulai_bot())
