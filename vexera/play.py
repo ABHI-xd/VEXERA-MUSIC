@@ -1,7 +1,8 @@
 import asyncio
 import re
 
-from config import ASSISTANT_NAME, BOT_USERNAME, IMG_1, IMG_2, BOT_NAME as {bn}
+from config import ASSISTANT_NAME, BOT_USERNAME, IMG_1, IMG_2
+from config import BOT_NAME as {bn}
 from Abhixd.filters import command, other_filters
 from Abhixd.queues import QUEUE, add_to_queue
 from Abhixd.snehabhi import call_py, user
