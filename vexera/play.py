@@ -1,7 +1,7 @@
 import asyncio
 import re
 
-from config import ASSISTANT_NAME, BOT_USERNAME, IMG_1, IMG_2
+from config import ASSISTANT_NAME, BOT_USERNAME, IMG_1, IMG_2, BOT_NAME as {bn}
 from Abhixd.filters import command, other_filters
 from Abhixd.queues import QUEUE, add_to_queue
 from Abhixd.snehabhi import call_py, user
@@ -53,13 +53,13 @@ async def play(c: Client, m: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
-                InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data="cls"),
+                InlineKeyboardButton(text="• 𝐦𝐞𝐧𝐮", callback_data="cbmenu"),
+                InlineKeyboardButton(text="• 𝐜𝐥𝐨𝐬𝐞", callback_data="cls"),
             ]
         ]
     )
     if m.sender_chat:
-        return await m.reply_text("you're an __Anonymous Admin__ !\n\n» revert back to user account from admin rights.")
+        return await m.reply_text("𝐘𝐨𝐮'𝐫𝐞 𝐚𝐧 __Anonymous Admin__ !\n\n» 𝐫𝐞𝐯𝐞𝐫𝐭 𝐛𝐚𝐜𝐤 𝐭𝐨 𝐮𝐬𝐞𝐫 𝐚𝐜𝐜𝐨𝐮𝐧𝐭 𝐟𝐫𝐨𝐦 𝐚𝐝𝐦𝐢𝐧 𝐫𝐢𝐠𝐡𝐭𝐬.")
     try:
         aing = await c.get_me()
     except Exception as e:
@@ -67,7 +67,7 @@ async def play(c: Client, m: Message):
     a = await c.get_chat_member(chat_id, aing.id)
     if a.status != "administrator":
         await m.reply_text(
-            f"💡 To use me, I need to be an **Administrator** with the following **permissions**:\n\n» ❌ __Delete messages__\n» ❌ __Restrict users__\n» ❌ __Add users__\n» ❌ __Manage video chat__\n\nData is **updated** automatically after you **promote me**"
+            f"💡 To use me, I need to be an **Administrator** with the following **permissions**:\n\n» ❌ __Delete messages__\n» ❌ __Manage video chat__\n\nData is **updated** automatically after you **promote me**"
         )
         return
     if not a.can_manage_voice_chats:
@@ -75,23 +75,12 @@ async def play(c: Client, m: Message):
             "missing required permission:" + "\n\n» ❌ __Manage video chat__"
         )
         return
-    if not a.can_delete_messages:
-        await m.reply_text(
-            "missing required permission:" + "\n\n» ❌ __Delete messages__"
-        )
-        return
-    if not a.can_invite_users:
-        await m.reply_text("missing required permission:" + "\n\n» ❌ __Add users__")
-        return
-    if not a.can_restrict_members:
-        await m.reply_text("missing required permission:" + "\n\n» ❌ __Restrict users__")
-        return
     try:
         ubot = await user.get_me()
         b = await c.get_chat_member(chat_id, ubot.id)
         if b.status == "kicked":
             await m.reply_text(
-                f"@{ASSISTANT_NAME} **is banned in group** {m.chat.title}\n\n» **unban the userbot first if you want to use this bot.**"
+                f"@{ASSISTANT_NAME} **𝐢𝐬 𝐛𝐚𝐧𝐧𝐞𝐝 𝐢𝐧 𝐠𝐫𝐨𝐮𝐩** {m.chat.title}\n\n» **𝐮𝐧𝐛𝐚𝐧 𝐭𝐡𝐞 𝐮𝐬𝐞𝐫𝐛𝐨𝐭 𝐟𝐢𝐫𝐬𝐭 𝐢𝐟 𝐲𝐨𝐮 𝐰𝐚𝐧𝐭 𝐭𝐨 𝐮𝐬𝐞 𝐭𝐡𝐢𝐬 𝐛𝐨𝐭.**"
             )
             return
     except UserNotParticipant:
@@ -99,7 +88,7 @@ async def play(c: Client, m: Message):
             try:
                 await user.join_chat(m.chat.username)
             except Exception as e:
-                await m.reply_text(f"❌ **userbot failed to join**\n\n**reason**: `{e}`")
+                await m.reply_text(f"❌ **𝐮𝐬𝐞𝐫𝐛𝐨𝐭 𝐟𝐚𝐢𝐥𝐞𝐝 𝐭𝐨 𝐣𝐨𝐢𝐧**\n\n**𝐫𝐞𝐚𝐬𝐨𝐧**: `{e}`")
                 return
         else:
             try:
@@ -110,12 +99,12 @@ async def play(c: Client, m: Message):
                 pass
             except Exception as e:
                 return await m.reply_text(
-                    f"❌ **userbot failed to join**\n\n**reason**: `{e}`"
+                    f"❌ **𝐮𝐬𝐞𝐫𝐛𝐨𝐭 𝐟𝐚𝐢𝐥𝐞𝐝 𝐭𝐨 𝐣𝐨𝐢𝐧**\n\n**𝐫𝐞𝐚𝐬𝐨𝐧**: `{e}`"
                 )
 
     if replied:
         if replied.audio or replied.voice:
-            suhu = await replied.reply("📥 **downloading audio...**")
+            suhu = await replied.reply("📥 **𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐚𝐮𝐝𝐢𝐨 𝐛𝐲 𝐕𝐄𝐗𝐄𝐑𝐀 𝐌𝐔𝐒𝐈𝐂 𝐣𝐨𝐢𝐧 @vexera_support ...**")
             dl = await replied.download()
             link = replied.link
             if replied.audio:
@@ -133,7 +122,7 @@ async def play(c: Client, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **Track added to queue »** `{pos}`\n\n🏷 **Name:** [{songname}]({link})\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {m.from_user.mention()}",
+                    caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {m.from_user.mention()}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",
                     reply_markup=keyboard,
                 )
             else:
@@ -150,23 +139,23 @@ async def play(c: Client, m: Message):
                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f"💡 **Music streaming started.**\n\n🏷 **Name:** [{songname}]({link})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {requester}",
+                    caption=f"💙 **𝐯𝐞𝐱𝐞𝐫𝐚 𝐌𝐮𝐬𝐢𝐜 𝐈𝐬 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ❤️**\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {requester}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",
                     reply_markup=keyboard,
                 )
              except Exception as e:
                 await suhu.delete()
-                await m.reply_text(f"🚫 error:\n\n» {e}")
+                await m.reply_text(f" 𝐏𝐚𝐡𝐥𝐞 𝐕𝐜 𝐭𝐨 𝐬𝐭𝐚𝐫𝐭 𝐤𝐚𝐫 𝐥𝐨 ")
         else:
             if len(m.command) < 2:
                 await m.reply(
-                    "» reply to an **audio file** or **give something to search.**"
+                    "**𝐒𝐨𝐧𝐠 𝐧𝐨𝐭 𝐟𝐨𝐮𝐧𝐝.𝐓𝐫𝐲 𝐚𝐧𝐨𝐭𝐡𝐞𝐫 𝐬𝐨𝐧𝐠 𝐨𝐫 𝐦𝐚𝐲𝐛𝐞 𝐬𝐩𝐞𝐥𝐥 𝐢𝐭 𝐩𝐫𝐨𝐩𝐞𝐫𝐥𝐲.**"
                 )
             else:
-                suhu = await m.reply("🔎 **searching...**")
+                suhu = await m.reply("**ıllıllı **Ꭾяσ¢єѕѕιηg**ıllıllı...**")
                 query = m.text.split(None, 1)[1]
                 search = ytsearch(query)
                 if search == 0:
-                    await suhu.edit("❌ **no results found.**")
+                    await suhu.edit("**𝐒𝐨𝐧𝐠 𝐧𝐨𝐭 𝐟𝐨𝐮𝐧𝐝.𝐓𝐫𝐲 𝐚𝐧𝐨𝐭𝐡𝐞𝐫 𝐬𝐨𝐧𝐠 𝐨𝐫 𝐦𝐚𝐲𝐛𝐞 𝐬𝐩𝐞𝐥𝐥 𝐢𝐭 𝐩𝐫𝐨𝐩𝐞𝐫𝐥𝐲.**")
                 else:
                     songname = search[0]
                     url = search[1]
@@ -182,7 +171,7 @@ async def play(c: Client, m: Message):
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                             await m.reply_photo(
                                 photo=f"{IMG_1}",
-                                caption=f"💡 **Track added to queue »** `{pos}`\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {requester}",
+                                caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {m.from_user.mention()}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",
                                 reply_markup=keyboard,
                             )
                         else:
@@ -199,24 +188,24 @@ async def play(c: Client, m: Message):
                                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                                 await m.reply_photo(
                                     photo=f"{IMG_2}",
-                                    caption=f"💡 **Music streaming started.**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {requester}",
+                                    caption=f"💙 **𝐯𝐞𝐱𝐞𝐫𝐚 𝐌𝐮𝐬𝐢𝐜 𝐈𝐬 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ❤️**\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {requester}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",                                   
                                     reply_markup=keyboard,
                                 )
                             except Exception as ep:
                                 await suhu.delete()
-                                await m.reply_text(f"🚫 error: `{ep}`")
+                                await m.reply_text(f"𝐏𝐚𝐡𝐥𝐞 𝐕𝐜 𝐭𝐨 𝐬𝐭𝐚𝐫𝐭 𝐤𝐚𝐫 𝐥𝐨")
 
     else:
         if len(m.command) < 2:
             await m.reply(
-                "» reply to an **audio file** or **give something to search.**"
+                "**𝐒𝐨𝐧𝐠 𝐧𝐨𝐭 𝐟𝐨𝐮𝐧𝐝.𝐓𝐫𝐲 𝐚𝐧𝐨𝐭𝐡𝐞𝐫 𝐬𝐨𝐧𝐠 𝐨𝐫 𝐦𝐚𝐲𝐛𝐞 𝐬𝐩𝐞𝐥𝐥 𝐢𝐭 𝐩𝐫𝐨𝐩𝐞𝐫𝐥𝐲.**"
             )
         else:
-            suhu = await m.reply("🔎 **searching...**")
+            suhu = await m.reply("**ıllıllı **Ꭾяσ¢єѕѕιηg**ıllıllı...**")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
-                await suhu.edit("❌ **no results found.**")
+                await suhu.edit("**𝐒𝐨𝐧𝐠 𝐧𝐨𝐭 𝐟𝐨𝐮𝐧𝐝.𝐓𝐫𝐲 𝐚𝐧𝐨𝐭𝐡𝐞𝐫 𝐬𝐨𝐧𝐠 𝐨𝐫 𝐦𝐚𝐲𝐛𝐞 𝐬𝐩𝐞𝐥𝐥 𝐢𝐭 𝐩𝐫𝐨𝐩𝐞𝐫𝐥𝐲.**")
             else:
                 songname = search[0]
                 url = search[1]
@@ -232,7 +221,7 @@ async def play(c: Client, m: Message):
                         )
                         await m.reply_photo(
                             photo=f"{IMG_1}",
-                            caption=f"💡 **Track added to queue »** `{pos}`\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n🎧 **Request by:** {requester}",
+                            caption=f"🥺 **𝐒𝐨𝐧𝐠 𝐈𝐬 𝐖𝐚𝐢𝐭𝐢𝐧𝐠** 🥺\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {m.from_user.mention()}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",
                             reply_markup=keyboard,
                         )
                     else:
@@ -249,7 +238,7 @@ async def play(c: Client, m: Message):
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                             await m.reply_photo(
                                 photo=f"{IMG_2}",
-                                caption=f"💡 **Music streaming started.**\n\n🏷 **Name:** [{songname}]({url})\n💭 **Chat:** `{chat_id}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {requester}",
+                                caption=f"💙 **𝐯𝐞𝐱𝐞𝐫𝐚 𝐌𝐮𝐬𝐢𝐜 𝐈𝐬 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ❤️**\n\n😗 **𝐉𝐨𝐢𝐧 @VEXERA_SUPPORT**\n❤️ **𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞:** [{songname}]({link})\n💙 **𝐒𝐨𝐧𝐠 𝐋𝐢𝐦𝐢𝐭:** `{duration}`\n😇 **𝐏𝐥𝐚𝐲 𝐁𝐲:** {requester}\n **𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐛𝐲** {bn}",                                
                                 reply_markup=keyboard,
                             )
                         except Exception as ep:
