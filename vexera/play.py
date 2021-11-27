@@ -24,18 +24,18 @@ from config import DURATION_LIMIT
 from config import UPDATES_CHANNEL as updateschannel
 from config import que
 from function.admins import admins as a
-from helpers.admins import get_administrators
-from helpers.channelmusic import get_chat_id
-from helpers.errors import DurationLimitError
-from helpers.decorators import errors
-from helpers.decorators import authorized_users_only
-from helpers.filters import command, other_filters
-from helpers.gets import get_file_name
-from services.callsmusic import callsmusic
-from services.callsmusic.callsmusic import client as USER
-from services.converter.converter import convert
-from services.downloaders import youtube
-from services.queues import queues
+from Abhixd.admins import get_administrators
+from Abhixd.channelmusic import get_chat_id
+from Abhixd.errors import DurationLimitError
+from Abhixd.decorators import errors
+from Abhixd.decorators import authorized_users_only
+from Abhixd.filters import command, other_filters
+from Abhixd.gets import get_file_name
+from callsmusic import callsmusic
+from callsmusic.callsmusic import client as USER
+from converter.converter import convert
+from downloaders import youtube
+from callsmusic.queues import queues
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
