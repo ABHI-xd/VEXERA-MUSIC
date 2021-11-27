@@ -43,3 +43,5 @@ python-arq
 youtube-search-python==1.4.9
 pytz
 aiohttp-session
+
+heroku3
