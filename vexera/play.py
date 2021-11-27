@@ -8,7 +8,7 @@ import aiohttp
 import converter
 import ffmpeg
 import requests
-from cache.admins import admins as a
+from function.admins import admins as a
 from callsmusic import callsmusic
 from callsmusic.callsmusic import client as USER
 from callsmusic.queues import queues
