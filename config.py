@@ -22,6 +22,7 @@ BOT_USERNAME = getenv("BOT_USERNAME", "veezmusicbot")
 ASSISTANT_NAME = getenv("ASSISTANT_NAME", "veezassistant1")
 GROUP_SUPPORT = getenv("GROUP_SUPPORT", "VeezSupportGroup")
 UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "levinachannel")
+ARQ_API_KEY = getenv("ARQ_API_KEY", None)
 # isi dengan username kamu tanpa simbol @
 OWNER_NAME = getenv("OWNER_NAME", "dlwrml")
 # fill with your nickname
