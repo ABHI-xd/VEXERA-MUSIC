@@ -1,9 +1,9 @@
-import cache.admins
+import function.admins
 from typing import List
 
 from pyrogram.types import Chat
-from cache.admins import get as gett
-from cache.admins import set
+from function.admins import get as gett
+from function.admins import set
 
 
 async def get_administrators(chat: Chat) -> List[int]:
