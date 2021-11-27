@@ -955,4 +955,4 @@ async def lol_cb(b, cb):
             reply_markup=keyboard,
             caption=f"▶️ 𝗣𝗹𝗮𝘆𝗶𝗻𝗴 𝗵𝗲𝗿𝗲 𝘁𝗵𝗲 𝘀𝗼𝗻𝗴 𝗿𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗯𝘆 {r_by.mention} \n 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : {duration} \n ",
         )
-        os.remove("final.png")
+        os
