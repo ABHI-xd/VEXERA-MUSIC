@@ -5,7 +5,7 @@ from pyrogram.types import Message
 
 from time import time
 from datetime import datetime
-from config import BOT_NAME as bn, BOT_USERNAME, BOT_IMAGE, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
+from config import BOT_NAME as bn, BOT_USERNAME, BG_IMAGE, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
 from Abhixd.filters import command, other_filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -38,7 +38,7 @@ async def alive(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_photo(
-        photo=f"{BOT_IMAGE}",
+        photo=f"{BG_IMAGE}",
         caption=f"""**༄ ★ʜᴇʟʟᴏ★ [{bn}](https://t.me/{BOT_USERNAME})**
 ༄ **★[ᴠᴇxᴇʀᴀ ᴍᴜꜱɪᴄ ʙᴏᴛ ʙʏ ᴀʙʜɪꜱʜᴇᴋ]★**
 ༄ **★ʙᴏᴛ★ : 7.5 LATEST**
