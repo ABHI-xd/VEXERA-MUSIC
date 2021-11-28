@@ -809,7 +809,7 @@ async def lol_cb(b, cb):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS(int(x.chat_id))
     if chat_id in ACTV_CALLS:
-        position = await queues.put(chat_id, file=file_path)
+        position = await queues.put(chat_id, file_path)
         qeue = que.get(chat_id)
         s_name = title
         try:
