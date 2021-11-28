@@ -953,4 +953,4 @@ async def lol_cb(b, cb):
             await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ 𝗣𝗹𝗮𝘆𝗶𝗻𝗴 𝗵𝗲𝗿𝗲 𝘁𝗵𝗲 𝘀𝗼𝗻𝗴 𝗿𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗯𝘆 {r_by.mention} \n 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : {duration} \n "
+            caption=f"▶️ 𝗣𝗹𝗮𝘆𝗶𝗻𝗴 𝗵𝗲𝗿𝗲 𝘁𝗵𝗲 𝘀𝗼𝗻𝗴 𝗿𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗯𝘆 {r_by.mention} \n 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : {duration} \n ")
