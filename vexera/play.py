@@ -680,7 +680,7 @@ async def play(_, message: Message):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         try:
-        await callsmusic.pytgcalls.join_group_call(
+            await callsmusic.pytgcalls.join_group_call(
             chat_id, 
             InputStream(
                 InputAudioStream(
