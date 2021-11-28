@@ -608,7 +608,7 @@ async def play(_, message: Message):
                 "5️⃣",
             ]
             while j < 5:
-                toxxt += f"{emojilist[j]} **[{results[j]['title'][:25]}...](https://youtube.com{results[j]['url_suffix']})**\n"
+                toxxt += f"{emojilist[j]} {results[j]<b>['title']}<b>\n"
                 toxxt += f" ├ 💡 **Duration** - `{results[j]['duration']}`\n"
                 toxxt += f" └ ⚡ __Powered by {BOT_NAME}__\n\n"
                 j += 1
