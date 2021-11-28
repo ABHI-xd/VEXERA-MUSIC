@@ -9,7 +9,7 @@ from config import (
     QUE_IMG,
     UPDATES_CHANNEL,
 )
-from Abhixd.play import convert_seconds
+from vexera.play import convert_seconds
 from Abhixd.filters import command, other_filters
 from Abhixd.gets import get_file_name
 from pyrogram import Client
