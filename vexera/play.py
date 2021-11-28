@@ -939,8 +939,8 @@ async def lol_cb(b, cb):
             r_by = cb.message.from_user
         loc = file_path
         qeue.append(appendable)
-        try:
-            await callsmusic.pytgcalls.join_group_call(
+        
+        callsmusic.pytgcalls.join_group_call(
                 chat_id, 
                 InputStream(
                     InputAudioStream(
@@ -949,8 +949,8 @@ async def lol_cb(b, cb):
                 ),
                 stream_type=StreamType().local_stream,
             )
-            await cb.message.delete()
-            await b.send_photo(chat_id,
+        await cb.message.delete()
+        await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
             caption=f"▶️ 𝗣𝗹𝗮𝘆𝗶𝗻𝗴 𝗵𝗲𝗿𝗲 𝘁𝗵𝗲 𝘀𝗼𝗻𝗴 𝗿𝗲𝗾𝘂𝗲𝘀𝘁𝗲𝗱 𝗯𝘆 {r_by.mention} \n 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : {duration} \n ",
