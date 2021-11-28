@@ -608,7 +608,7 @@ async def play(_, message: Message):
                 "5️⃣",
             ]
             while j < 5:
-                toxxt += f"{emojilist[j]} {results[j]<b>['title']}<b>\n"
+                toxxt += f"{emojilist[j]} **[{results[j]['title'][:25]}...](https://youtube.com{results[j]['url_suffix']})**\n"
                 toxxt += f" ├ 💡 **Duration** - `{results[j]['duration']}`\n"
                 toxxt += f" └ ⚡ __Powered by {BOT_NAME}__\n\n"
                 j += 1
@@ -683,7 +683,7 @@ async def play(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS(int(x.chid))
     if chat_id in ACTV_CALLS:
-        position = await queues.put(chat_id, file_path)
+        position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
         s_name = title
         r_by = message.from_user
