@@ -1,14 +1,13 @@
 import asyncio
-
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
+from KennedyMusic.callsmusic.callsmusic import client as USER
+from KennedyMusic.config import BOT_USERNAME, SUDO_USERS
+from KennedyMusic.helpers.decorators import authorized_users_only, errors
+from KennedyMusic.helpers.filters import command
 
-from config import SUDO_USERS, ASSISTANT_NAME
-from Abhixd.decorators import authorized_users_only, errors
-from callsmusic.callsmusic import client as USER
 
-
-@Client.on_message(filters.command(["userbotjoin", "ubjoin", "vexerajoin"]) & ~filters.private & ~filters.bot)
+@Client.on_message(command(["userbotjoin", "ubjoin", f"userbotjoin@{BOT_USERNAME}"]) & ~filters.private & ~filters.bot)
 @authorized_users_only
 @errors
 async def addchannel(client, message):
@@ -16,113 +15,58 @@ async def addchannel(client, message):
     try:
         invitelink = await client.export_chat_invite_link(chid)
     except:
-        await message.reply_text(
-            "<b>Add me as admin of yor group first</b>",
-        )
+        await message.reply_text("<b>promote me as admin first !</b>")
+        await message.reply_sticker("CAACAgUAAx0CYPNCJwACJpthfoPdqrvoutRwQzk_v9bqUyOnugACRgADE_yaMj3RPONrfXfZIQQ")
         return
-
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "VexeraMusic"
-
+        user.first_name = "music assistant"
     try:
         await USER.join_chat(invitelink)
-        await USER.send_message(message.chat.id, "I joined here as you requested")
+        await USER.send_message(message.chat.id, "🤖: i'm joined here for playing music on voice chat")
+        await USER.send_sticker(message.chat.id, "CAACAgUAAx0CYPNCJwACJpdhfoO6uBuC9b2EglpYeiNKOMtqJAACNQADE_yaMk-0JIP096z2IQQ")
     except UserAlreadyParticipant:
-        await message.reply_text(
-            "<b>helper already in your chat</b>",
-        )
+        await message.reply_text(f"<b>✅ userbot already joined chat</b>")
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your group due to heavy join requests for userbot! Make sure user is not banned in group."
-            "\n\nOr manually add {ASSISTANT_NAME} to your Group and try again</b>",
+            f"<b>🛑 Flood Wait Error 🛑 \n\n User {user.first_name} couldn't join your group due to heavy join requests for userbot."
+            "\n\nor manually add assistant to your Group and try again</b>",
         )
         return
-    await message.reply_text(
-        "<b>helper userbot joined your chat</b>",
-    )
+    await message.reply_text(f"<b>✅ userbot successfully joined chat</b>")
 
 
-@USER.on_message(filters.group & filters.command(["userbotleave"]))
+@Client.on_message(command(["userbotleave", f"userbotleave@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 @authorized_users_only
-async def rem(USER, message):
+async def rem(client, message):
     try:
+        await USER.send_sticker(message.chat.id, "CAACAgUAAx0CYPNCJwACA0RhbkLHaItFAAFFSUQZW3YhLiqJb2MAAgYFAAIclOFWYPPBpmhRMYUhBA")
+        await USER.send_message(message.chat.id, "✅ I'm leaving your group, bye bye!")
         await USER.leave_chat(message.chat.id)
     except:
-        await message.reply_text(
-            f"<b>User couldn't leave your group! May be floodwaits."
-            "\n\nOr manually kick me from to your Group</b>",
-        )
+        await message.reply_text("<b>user couldn't leave your group, may be floodwaits.\n\nor manually kick me from your group</b>")
         return
 
 
-@Client.on_message(filters.command(["userbotleaveall"]))
+@Client.on_message(command(["userbotleaveall", f"userbotleaveall@{BOT_USERNAME}"]))
 async def bye(client, message):
-    if message.from_user.id in SUDO_USERS:
-        left = 0
-        failed = 0
-        lol = await message.reply("Assistant Leaving all chats")
-        async for dialog in USER.iter_dialogs():
-            try:
-                await USER.leave_chat(dialog.chat.id)
-                left = left + 1
-                await lol.edit(
-                    f"Assistant leaving... Left: {left} chats. Failed: {failed} chats."
-                )
-            except:
-                failed = failed + 1
-                await lol.edit(
-                    f"Assistant leaving... Left: {left} chats. Failed: {failed} chats."
-                )
-            await asyncio.sleep(0.7)
-        await client.send_message(
-            message.chat.id, f"Left {left} chats. Failed {failed} chats."
-        )
-
-
-@Client.on_message(
-    filters.command(["userbotjoinchannel", "ubjoinc"]) & ~filters.private & ~filters.bot
-)
-@authorized_users_only
-@errors
-async def addcchannel(client, message):
-    try:
-        conchat = await client.get_chat(message.chat.id)
-        conid = conchat.linked_chat.id
-        chid = conid
-    except:
-        await message.reply("Is chat even linked")
-        return
-    try:
-        invitelink = await client.export_chat_invite_link(chid)
-    except:
-        await message.reply_text(
-            "<b>Add me as admin of yor channel first</b>",
-        )
+    if message.from_user.id not in SUDO_USERS:
         return
 
-    try:
-        user = await USER.get_me()
-    except:
-        user.first_name = "VexeraMusic"
-
-    try:
-        await USER.join_chat(invitelink)
-        await USER.send_message(message.chat.id, "I joined here as you requested")
-    except UserAlreadyParticipant:
-        await message.reply_text(
-            "<b>helper already in your channel</b>",
-        )
-        return
-    except Exception as e:
-        print(e)
-        await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your channel due to heavy join requests for userbot! Make sure user is not banned in channel."
-            "\n\nOr manually add {ASSISTANT_NAME} to your Group and try again</b>",
-        )
-        return
-    await message.reply_text(
-        "<b>helper userbot joined your channel</b>",
-    )
+    left = 0
+    failed = 0
+    lol = await message.reply("Assistant Leaving all chats")
+    async for dialog in USER.iter_dialogs():
+        try:
+            await USER.leave_chat(dialog.chat.id)
+            left += 1
+            await lol.edit(
+                f"Assistant leaving all group... \n\nLeft: {left} chats. Failed: {failed} chats."
+            )
+        except:
+            failed += 1
+            await lol.edit(f"Assistant leaving... Left: {left} chats. Failed: {failed} chats.")
+        await asyncio.sleep(0.7)
+    await client.send_message(message.chat.id, f"Left {left} chats. Failed {failed} chats.")
