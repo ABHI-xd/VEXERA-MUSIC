@@ -1,10 +1,10 @@
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
-from KennedyMusic.callsmusic.callsmusic import client as USER
-from KennedyMusic.config import BOT_USERNAME, SUDO_USERS
-from KennedyMusic.helpers.decorators import authorized_users_only, errors
-from KennedyMusic.helpers.filters import command
+from callsmusic.callsmusic import client as USER
+from config import BOT_USERNAME, SUDO_USERS
+from Abhixd.decorators import authorized_users_only, errors
+from Abhixd.filters import command
 
 
 @Client.on_message(command(["userbotjoin", "ubjoin", f"userbotjoin@{BOT_USERNAME}"]) & ~filters.private & ~filters.bot)
