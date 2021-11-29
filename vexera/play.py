@@ -681,9 +681,9 @@ async def play(_, message: Message):
     file_path = await convert(download(url))
     ACTV_CALLS = []
     for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALLS(int(x.chid))
+        ACTV_CALLS.append(int(x.chid))
     if chat_id in ACTV_CALLS:
-        position = await queues.put(chat_id, file_path)
+        position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
         s_name = title
         r_by = message.from_user
