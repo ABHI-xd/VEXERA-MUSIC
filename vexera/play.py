@@ -457,6 +457,8 @@ async def play(_, message: Message):
                     )
                 try:
                     invitelink = await _.export_chat_invite_link(chid)
+                    if invitelink.startswith("https://t.me/+"):
+                        invitelink = invitelink.replace("https://t.me/+","https://t.me/joinchat/")
                 except:
                     await lel.edit(
                         "💡 **To use me, I need to be an Administrator** with the permissions:\n\n» ❌ __Delete messages__\n» ❌ __Ban users__\n» ❌ __Add users__\n» ❌ __Manage voice chat__\n\n**Then type /reload**",
@@ -897,6 +899,8 @@ async def ytplay(_, message: Message):
                     )
                 try:
                     invitelink = await _.export_chat_invite_link(chid)
+                    if invitelink.startswith("https://t.me/+"):
+                        invitelink = invitelink.replace("https://t.me/+","https://t.me/joinchat/")
                 except:
                     await lel.edit(
                         "💡 **To use me, I need to be an Administrator with the permissions:\n\n» ❌ __Delete messages__\n» ❌ __Ban users__\n» ❌ __Add users__\n» ❌ __Manage voice chat__\n\n**Then type /reload**",
