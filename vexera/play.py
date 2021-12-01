@@ -4,7 +4,7 @@ from typing import Callable
 from pyrogram import Client, filters
 from pyrogram.types import Message, Voice, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserAlreadyParticipant
-from callsmusic mport callsmusic, queues
+from callsmusic import callsmusic, queues
 from callsmusic.callsmusic import client as USER
 from Abhixd.admins import get_administrators
 import requests
