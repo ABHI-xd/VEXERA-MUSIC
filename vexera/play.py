@@ -26,12 +26,12 @@ from config import (
     que,
 )
 from downloaders import youtube
-from vexera.admins import get_administrators
-from vexera.channelmusic import get_chat_id
-from vexera.chattitle import CHAT_TITLE
-from vexera.decorators import authorized_users_only
-from vexera.filters import command, other_filters
-from vexera.gets import get_url, get_file_name
+from Abhixd.admins import get_administrators
+from Abhixd.channelmusic import get_chat_id
+from Abhixd.chattitle import CHAT_TITLE
+from Abhixd.decorators import authorized_users_only
+from Abhixd.filters import command, other_filters
+from Abhixd.gets import get_url, get_file_name
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
