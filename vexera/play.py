@@ -485,27 +485,22 @@ async def play(_, message: Message):
             f"» **userbot not in this chat or is banned in this group !**\n\n**unban @{ASSISTANT_NAME} and added again to this group manually, or type /reload then try again."	
         )	
         return	
-    text_links=None	
-    if message.reply_to_message:	
-        if message.reply_to_message.audio or message.reply_to_message.voice:	
-            pass	
-        entities = []	
-        if message.entities:	
-            entities += entities	
-        elif message.caption_entities:	
-            entities += message.caption_entities	
-        if message.reply_to_message:	
-            text = message.reply_to_message.text
-        or message.reply_to_message.caption	
-        if message.reply_to_message.entities:	
-            entities = message.reply_to_message.entities + entities	
-        else:	
-            text = message.text or message.caption	
-
-        urls = [entity for entity in entities if entity.type == 'url']	
-        text_links = [	
-            entity for entity in entities if entity.type == 'text_link'	
-        ]	
+    text_links = None
+    if message.reply_to_message:
+        if message.reply_to_message.audio or message.reply_to_message.voice:
+            pass
+        entities = {}
+        toxt = message.reply_to_message.text or message.reply_to_message.caption
+        if message.reply_to_message.entities:
+            entities = message.reply_to_message.entities + entities
+        elif message.reply_to_message.caption_entities:
+            entities = message.reply_to_message.entities + entities
+        urls = [
+            entity for entity in entities if entity.type == "url"
+        ]
+        text_links = [
+            entity for entity in entities if entity.type == "text_link"
+        ]
     else:	
         urls = None	
     if text_links:	
