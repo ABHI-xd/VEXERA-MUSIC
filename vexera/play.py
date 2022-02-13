@@ -495,7 +495,7 @@ async def play(_, message: Message):
         elif message.caption_entities:	
             entities += message.caption_entities	
         if message.reply_to_message:	
-            text = message.reply_to_message.text \	
+            text = message.reply_to_message.text
                 or message.reply_to_message.caption	
             if message.reply_to_message.entities:	
                 entities = message.reply_to_message.entities + entities	
