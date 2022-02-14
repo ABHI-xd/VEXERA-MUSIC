@@ -612,7 +612,7 @@ async def play(_, message: Message):
                 caption=nofound,	
                 reply_markup=bttn,	
                 )	
-                print(str(e))	
+            print(str(e))	
             return	
             keyboard = InlineKeyboardMarkup(	
                 [	
