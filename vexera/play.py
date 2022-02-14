@@ -588,64 +588,13 @@ async def play(_, message: Message):
         ydl_opts = {"format": "bestaudio[ext=m4a]"}	
 
         try:	
-            results = YoutubeSearch(query, max_results=5).to_dict()	
+            results = YoutubeSearch(query, max_results=1).to_dict()	
         except:	
             await lel.edit(	
                 "❌ **song name not found, **please provide the name of the song you want to play"	
             )	
         try:	
-            await lel.delete()	
-            toxxt = "\n"	
-            j = 0	
-            user = user_name	
-            emojilist = [	
-                "1️⃣", 	
-                "2️⃣", 	
-                "3️⃣", 	
-                "4️⃣", 	
-                "5️⃣",	
-            ]	
-            while j < 5:	
-                toxxt += f"{emojilist[j]} **[{results[j]['title'][:25]}...](https://youtube.com{results[j]['url_suffix']})**\n"	
-                toxxt += f" ├ 🙃 ᴅᴜʀᴀᴛɪᴏɴ - `{results[j]['duration']}`\n"	
-                toxxt += f" └ ᴀʙʜɪ 𝗣ᴏᴡᴇʀᴇᴅ💜\n\n"	
-                j += 1	
-            keyboard = InlineKeyboardMarkup(	
-                [	
-                    [	
-                        InlineKeyboardButton(	
-                            "1️⃣", callback_data=f"plll 0|{query}|{user_id}"	
-                        ),	
-                        InlineKeyboardButton(	
-                            "2️⃣", callback_data=f"plll 1|{query}|{user_id}"	
-                        ),	
-                        InlineKeyboardButton(	
-                            "3️⃣", callback_data=f"plll 2|{query}|{user_id}"	
-                        ),	
-                    ],	
-                    [	
-                        InlineKeyboardButton(	
-                            "4️⃣", callback_data=f"plll 3|{query}|{user_id}"	
-                        ),	
-                        InlineKeyboardButton(	
-                            "5️⃣", callback_data=f"plll 4|{query}|{user_id}"	
-                        ),	
-                    ],	
-                    [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],	
-                ]	
-            )	
-            await _.send_photo(chid,	
-                photo=f"{THUMB_IMG}",	
-                caption=toxxt,	
-                reply_markup=keyboard,	
-            )	
-
-            return	
-
-        except:	
-            pass	
-
-            try:	
+            
                 url = f"https://youtube.com{results[0]['url_suffix']}"	
                 title = results[0]["title"][:70]	
                 thumbnail = results[0]["thumbnails"][0]	
