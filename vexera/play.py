@@ -419,7 +419,7 @@ async def m_cb(b, cb):
             )	
 
 
-@Client.on_message(command(["ytplay", f"ytplay@{BOT_USERNAME}"]) & other_filters)	
+@Client.on_message(command(["play", f"ytplay@{BOT_USERNAME}"]) & other_filters)	
 async def play(_, message: Message):	
 
     bttn = InlineKeyboardMarkup(	
@@ -626,10 +626,10 @@ async def play(_, message: Message):
             await generate_cover(title, thumbnail, ctitle)	
 
     file_path = await convert(download(url))	
-    ACTV_CALLS = []	
-    for x in callsmusic.pytgcalls.active_calls:	
-        ACTV_CALLS.append(int(x.chid))	
-    if int(chat_id) in ACTV_CALLS:	
+    ACTV_CALLS = []
+    for x in callsmusic.pytgcalls.active_calls:
+        ACTV_CALLS(int(x.chat_id))
+    if int(message.chat.id) in ACTV_CALLS:
         position = await queues.put(chat_id, file=file_path)	
         qeue = que.get(chat_id)	
         s_name = title	
