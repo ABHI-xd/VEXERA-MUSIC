@@ -605,15 +605,15 @@ async def play(_, message: Message):
                 open(thumb_name, "wb").write(thumb.content)	
                 duration = results[0]["duration"]	
                 results[0]["url_suffix"]	
-            except Exception as e:	
-                await lel.delete()	
-                await message.reply_photo(	
-                    photo=f"{THUMB_IMG}",	
-                    caption=nofound,	
-                    reply_markup=bttn,	
+        except Exception as e:	
+            await lel.delete()	
+            await message.reply_photo(	
+                photo=f"{THUMB_IMG}",	
+                caption=nofound,	
+                reply_markup=bttn,	
                 )	
                 print(str(e))	
-                return	
+            return	
             keyboard = InlineKeyboardMarkup(	
                 [	
                     [	
